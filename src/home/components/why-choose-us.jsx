@@ -8,7 +8,7 @@ import Warranty from '../../assets/warranty.png'
 
 function WhyChooseUs(){
    return(
-      <section className="flex w-[85%] mx-auto items-start  h-[90vh]">
+      <section className=" md:flex w-[85%] mx-auto items-start  h-[90vh]">
          <div className="flex-1 gap-4 flex flex-col">
             <h1 className="font-clash font-bold text-[45px]">Why <br/> Choose Us?</h1>
             <div className="w-4/5">
