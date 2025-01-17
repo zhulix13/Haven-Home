@@ -1,0 +1,18 @@
+@import './App.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+   box-sizing: border-box;
+   margin: 0;
+
+}
+
+.bg-main{
+   background: url('./assets/living-room.png');
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+}
