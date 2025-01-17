@@ -15,6 +15,9 @@ export default {
         medium: '500',
         bold: '700',
       },
+      boxShadow: {
+        'custom-inset': 'inset 0px -2px 4px 3px #E0EAFE',
+      },
     },
   },
   plugins: [],

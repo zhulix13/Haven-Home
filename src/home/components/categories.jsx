@@ -4,7 +4,7 @@ import image3 from '../../assets/Dining room.png'
 
 function Categories() {
    return(
-      <div className='mt-7 h-full flex flex-col justify-between gap-5'>
+      <div className='my-10 h-[80vh] flex flex-col  gap-5'>
          <h1 className='text-center font-clash font-bold text-[45px]'>Product Categories</h1>
          <p className='font-sans font-regular text-2xl text-center px-4 leading-relaxed'>
             We have different types of furnitures that will suit every angle <br /> of your home, they are categorized as below
