@@ -12,6 +12,7 @@ function Categories() {
          <div className='flex mx-auto mt-10 gap-2 items-center'>
             <div>
                <img src={image1} alt="living-room" />
+               <h1 className='mt-5 text-center font-clash font-semibold text-2xl'>Living Room</h1>
             </div>
             
             <span className='px-2'>
@@ -33,7 +34,9 @@ function Categories() {
             </span>
 
                <div>
-                  <img src={image2} alt="living-room" />
+                  <img src={image2} alt="bed-room" />
+               <h1 className='mt-5 text-center font-clash font-semibold text-2xl'>Bed Room</h1>
+
                </div>
 
                <span className='px-2'>
@@ -57,7 +60,9 @@ function Categories() {
 
                </span>
                <div>
-                     <img src={image3} alt="living-room" />
+                     <img src={image3} alt="dining-room" />
+                     <h1 className='mt-5 text-center font-clash font-semibold text-2xl'>Dining Room</h1>
+
                 </div>
 
          </div>

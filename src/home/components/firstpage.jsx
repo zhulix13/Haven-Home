@@ -2,7 +2,7 @@ import Header from "../../constant/Header"
 
 function FirstPage(){
    return(
-      <div className="h-[100vh] bg-main ">
+      <div className="h-[100vh] rounded-br-3xl rounded-bl-3xl bg-main  ">
          <Header/>
          <div className=" w-[90%] bg-[#FFFFFF] mx-auto grid grid-cols-1 md:grid-cols-3 rounded-2xl py-4 shadow-lg mt-[50vh] px-2">
                <div className="flex gap-5 items-center flex-col">
