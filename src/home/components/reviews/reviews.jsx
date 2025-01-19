@@ -13,7 +13,7 @@ function Reviews () {
           <p className="font-sans font-regular text-2xl w-3/4 text-center mt-3">
             We have provided services to thousands of people  across Nigeria and these are some of the reviews we got from our clients.
           </p>
-          <div className="grid mx-auto gap-x-5 grid-cols-3  mt-8 ">
+          <div className="grid mx-auto gap-x-5 grid-cols-1 md:grid-cols-3  mt-8 ">
             {reviewsList.map((review) => (
                <div className="flex flex-col gap-7 pt-8 shadow-inset-dark rounded-3xl px-3 py-3  justify-evenly border  w-[400px] border-[#E0EAFE]">
                   <MdOutlineRateReview className="h-10 w-10"/>
@@ -30,21 +30,21 @@ function Reviews () {
           </div>
           <div className="mt-16">
           <h1 className="font-bold font-clash text-[45px]  text-center">Trusted by over 1K+ companies</h1>
-          <div className="grid grid-cols-5 mt-10 gap-x-5">
+          <div className="grid grid-cols-2 mx-auto space-x-4 md:grid-cols-5 mt-10 ">
             <div className="shadow-md">
-               <img src={transcorp} alt="" />
+               <img src={transcorp} alt="" className="mx-auto mt-3" />
             </div>
             <div className="shadow-md">
-               <img src={bayrock} alt="" />
+               <img src={bayrock} alt="" className="mx-auto mt-3" />
             </div>
             <div className="shadow-md">
-               <img src={continental} alt="" />
+               <img src={continental} alt="" className="mx-auto mt-3"/>
             </div>
             <div className="shadow-md">
-               <img src={diamond} alt="" />
+               <img src={diamond} alt="" className="mx-auto mt-3"/>
             </div>
             <div className="shadow-md">
-               <img src={grandhill} alt="" />
+               <img src={grandhill} alt="" className="mx-auto mt-3"/>
             </div>
          </div>
           </div>
