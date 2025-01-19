@@ -1,5 +1,6 @@
 import './index.css'
 import Header from './constant/Header'
+import Footer from './constant/Footer';
 import Home from './home/index';
 import { BrowserRouter as Router,Routes ,Route, useLocation} from 'react-router-dom'
 
@@ -7,6 +8,7 @@ function App() {
   return (
     <Router>
       <Layout />
+      
     </Router>
   );
 }
@@ -26,6 +28,7 @@ function Layout() {
         
         {/* Add other routes */}
       </Routes>
+      <Footer/>
     </div>
   );
 }

@@ -5,9 +5,10 @@ function FirstPage() {
     <div>
       <Header />
       <div className="h-[80vh] flex flex-col justify-end bg-main">
-        <div className="w-full md:w-[85%] mb-10 bg-[#FFFFFF] text-center mx-auto grid grid-cols-1 md:grid-cols-3 rounded-2xl py-4 shadow-lg px-6">
-          <div className="flex gap-5 flex-shrink items-center flex-col">
-            <h1 className="font-clash font-semibold text-[35px] md:text-[40px]">
+        <div className="w-full md:w-[85%] mb-10 bg-[#FFFFFF] text-center mx-auto grid grid-cols-1 md:grid-cols-3 rounded-2xl py-6 shadow-lg px-6">
+          {/* Experience Section */}
+          <div className="flex gap-5 flex-shrink items-center flex-col border-b-2 md:border-b-0 border-[#E0EAFE] pb-6 md:pb-0">
+            <h1 className="font-clash font-semibold text-[30px] md:text-[40px]">
               2+ Years Experience
             </h1>
             <p className="text-center text-lg md:text-xl">
@@ -15,8 +16,9 @@ function FirstPage() {
             </p>
           </div>
 
-          <div className="flex gap-5 flex-shrink items-center flex-col">
-            <h1 className="font-clash font-semibold text-[35px] md:text-[40px]">
+          {/* Clients Section */}
+          <div className="flex gap-5 flex-shrink items-center flex-col border-b md:border-b-0 border-[#E0EAFE] pb-6 md:pb-0">
+            <h1 className="font-clash font-semibold text-[30px] md:text-[40px]">
               500+ Happy Clients
             </h1>
             <p className="text-center text-lg md:text-xl">
@@ -25,8 +27,9 @@ function FirstPage() {
             </p>
           </div>
 
-          <div className="flex gap-5 flex-shrink items-center flex-col">
-            <h1 className="font-clash font-semibold text-[35px] md:text-[40px]">
+          {/* Projects Finished Section */}
+          <div className="flex gap-5 flex-shrink items-center flex-col border-b md:border-b-0 border-[#E0EAFE] pb-6 md:pb-0">
+            <h1 className="font-clash font-semibold text-[30px] md:text-[40px]">
               1k+ Projects Finished
             </h1>
             <p className="text-center text-lg md:text-xl">

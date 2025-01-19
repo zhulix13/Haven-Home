@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isHomePage, setIsHomePage] = useState(false);  // Track if on the home page
 
   const handleScroll = () => {
     if (window.scrollY > window.innerHeight * 0.4) {
@@ -22,6 +23,7 @@ function Header() {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
+    setIsHomePage(window.location.pathname === '/'); // Check if on the homepage
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
@@ -38,11 +40,7 @@ function Header() {
         {/* Logo */}
         <a
           href="/"
-          className={`font-clash text-[45px] font-bold ${
-            isScrolled
-              ? 'text-black'
-              : 'bg-gradient-to-r from-[#E0EAFE] via-[#96B8FC] to-[#96B8FC] bg-clip-text text-transparent'
-          }`}
+          className={`font-clash text-[45px] font-bold ${isScrolled ? 'text-black' : 'bg-gradient-to-r from-[#E0EAFE] via-[#96B8FC] to-[#96B8FC] bg-clip-text text-transparent'}`}
         >
           HavenHome
         </a>
@@ -54,9 +52,7 @@ function Header() {
           aria-label="Toggle menu"
         >
           <svg
-            className={`w-6 h-6 transition-transform duration-300 ${
-              isMenuOpen ? 'rotate-45 scale-125' : ''
-            }`}
+            className={`w-6 h-6 transition-transform duration-300 ${isMenuOpen ? 'rotate-45 scale-125' : ''}`}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="none"
@@ -87,9 +83,7 @@ function Header() {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `font-sans text-[25px] font-medium ${
-                isActive ? 'border-b-2 border-[#E0EAFE] rounded-[1px]' : ''
-              } py-2 px-4 ${isScrolled ? 'text-black' : ''}`
+              `font-sans text-[25px] font-medium ${isHomePage && isActive ? 'border-b-2 border-white rounded-[25px]' : ''} ${isActive ? 'border-b-2 border-[#E0EAFE] rounded-[25px]' : ''} py-2 px-4 ${isScrolled || !isHomePage ? 'text-black' : 'text-white'}`
             }
             aria-label="Go to the homepage"
           >
@@ -98,9 +92,7 @@ function Header() {
           <NavLink
             to="/about"
             className={({ isActive }) =>
-              `font-sans text-[25px] font-medium ${
-                isActive ? 'border-b-2 border-[#E0EAFE] rounded-[1px]' : ''
-              } py-2 px-4 ${isScrolled ? 'text-black' : ''}`
+              `font-sans text-[25px] font-medium ${isActive ? 'border-b-2 border-[#E0EAFE] rounded-[25px]' : ''} py-2 px-4 ${isScrolled ? 'text-black' : 'text-white'}`
             }
             aria-label="Learn more about who we are"
           >
@@ -109,9 +101,7 @@ function Header() {
           <NavLink
             to="/products"
             className={({ isActive }) =>
-              `font-sans text-[25px] font-medium ${
-                isActive ? 'border-b-2 border-[#E0EAFE] rounded-[1px]' : ''
-              } py-2 px-4 ${isScrolled ? 'text-black' : ''}`
+              `font-sans text-[25px] font-medium ${isActive ? 'border-b-2 border-[#E0EAFE] rounded-[25px]' : ''} py-2 px-4 ${isScrolled ? 'text-black' : 'text-white'}`
             }
             aria-label="Browse our product categories"
           >
@@ -120,9 +110,7 @@ function Header() {
           <NavLink
             to="/shop"
             className={({ isActive }) =>
-              `font-sans text-[25px] font-medium ${
-                isActive ? 'border-b-2 border-[#E0EAFE] rounded-[1px]' : ''
-              } py-2 px-6 rounded-3xl ${isScrolled ? 'text-black' : ''}`
+              `font-sans text-[25px] font-medium ${isActive ? 'border-b-2 border-[#E0EAFE] rounded-[25px]' : ''} py-2 px-6 rounded-[25px] ${isHomePage ? 'bg-white text-black' : 'bg-[#96B8FC] text-white'}`
             }
             aria-label="Visit our shop"
           >
@@ -133,10 +121,7 @@ function Header() {
 
       {/* Slide-in Mobile Menu from Right */}
       <div
-        className={`fixed top-0 right-0 h-full bg-gradient-to-r w-full from-[#E0EAFE] via-[#96B8FC] to-[#96B8FC] z-40 transition-transform duration-300 ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-        
+        className={`fixed top-0 right-0 h-full bg-gradient-to-r w-full from-[#E0EAFE] via-[#96B8FC] to-[#96B8FC] z-40 transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
         <div className="flex flex-col items-start p-6">
           <NavLink

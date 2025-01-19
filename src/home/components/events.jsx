@@ -3,32 +3,68 @@ import installation from '../../assets/events/installation 1.png';
 import opening from '../../assets/events/grand opening.png';
 
 function Events() {
-   return (
-      <section className="h-auto py-3">
-         <h1 className="text-center font-clash font-bold text-[45px]">Events</h1>
-         <p className="text-sans font-normal mt-6 text-2xl text-center">We have attended thousands of events across Nigeria and these are some of them.</p>
+  return (
+    <section className="py-6 md:py-10">
+      {/* Section Title */}
+      <h1 className="text-center font-clash font-bold text-[35px] md:text-[45px]">
+        Events
+      </h1>
+      <p className="font-sans font-normal mt-4 md:mt-6 text-[20px] md:text-2xl text-center max-w-[750px] mx-auto">
+        We have attended thousands of events across Nigeria and these are some of them.
+      </p>
 
-         <div className="grid grid-cols-1 sm:w-full md:w-4/5 gap-x-16 mt-20 mx-auto md:grid-cols-3">
-            <div className="flex gap-5 flex-col">
-               <img src={opening} alt="Grand Opening" className="w-full h-auto" />
-               <h1 className='font-clash font-semibold text-2xl text-center'>Grand Opening</h1>
-               <p className='font-sans text-lg text-center font-regular'>We were present at the grand opening of Albergo Hotels to appreciate their immense patronage.</p>
-            </div>
+      {/* Events Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-x-8 mt-12 mx-auto w-[90%] md:w-4/5">
+        {/* Event Card 1 */}
+        <div className="flex flex-col gap-4 items-center">
+          <img
+            src={opening}
+            alt="Grand Opening"
+            className="w-full max-w-[400px] h-auto rounded-lg shadow-lg"
+          />
+          <h1 className="font-clash font-semibold text-2xl md:text-2xl text-center">
+            Grand Opening
+          </h1>
+          <p className="font-sans text-lg md:text-lg text-center font-regular max-w-[300px]">
+            We were present at the grand opening of Albergo Hotels to appreciate their immense
+            patronage.
+          </p>
+        </div>
 
-            <div className="flex gap-5 flex-col">
-               <img src={site} alt="Site Inspection" className="w-full h-auto" />
-               <h1 className='font-clash font-semibold text-2xl text-center'>Site Inspection</h1>
-               <p className='font-sans text-lg text-center font-regular'>Site seeing of our furniture production room to make sure things are going well appropriately.</p>
-            </div>
+        {/* Event Card 2 */}
+        <div className="flex flex-col gap-4 items-center">
+          <img
+            src={site}
+            alt="Site Inspection"
+            className="w-full max-w-[400px] h-auto rounded-lg shadow-lg"
+          />
+          <h1 className="font-clash font-semibold text-2xl md:text-2xl text-center">
+            Site Inspection
+          </h1>
+          <p className="font-sans text-lg md:text-lg text-center font-regular max-w-[300px]">
+            Site seeing of our furniture production room to make sure things are going well
+            appropriately.
+          </p>
+        </div>
 
-            <div className="flex gap-5 flex-col">
-               <img src={installation} alt="Installation" className="w-full h-auto" />
-               <h1 className='font-clash font-semibold text-2xl text-center'>Installation</h1>
-               <p className='font-sans text-lg text-center font-regular'>Dining set installation for a client who purchased online and got it delivered and installed neatly.</p>
-            </div>
-         </div>
-      </section>
-   );
+        {/* Event Card 3 */}
+        <div className="flex flex-col gap-4 items-center">
+          <img
+            src={installation}
+            alt="Installation"
+            className="w-full max-w-[400px] h-auto rounded-lg shadow-lg"
+          />
+          <h1 className="font-clash font-semibold text-2xl md:text-2xl text-center">
+            Installation
+          </h1>
+          <p className="font-sans text-lg md:text-lg text-center font-regular max-w-[300px]">
+            Dining set installation for a client who purchased online and got it delivered and
+            installed neatly.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Events;
