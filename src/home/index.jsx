@@ -5,6 +5,7 @@ import Reviews from "./components/reviews/reviews.jsx";
 import Events from "./components/events.jsx";
 import Questions from "./components/questions.jsx";
 import Talk from "./components/talk.jsx";
+import Advert from "./components/advert.jsx";
 
 function Home(){
    return(
@@ -16,6 +17,7 @@ function Home(){
          <Events/>
          <Questions/>
          <Talk/>
+         <Advert/>
       </>
    )
 }
