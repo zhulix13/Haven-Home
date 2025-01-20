@@ -16,3 +16,11 @@
    background-position: center;
    background-repeat: no-repeat;
 }
+
+.bg-customer {
+   background: url('./assets/who-we-are/customer.png');
+   background-size: contain; /* Ensures the entire image fits within the div */
+   background-position: center;
+   background-repeat: no-repeat;
+ }
+ 
