@@ -1,36 +1,21 @@
-import './index.css'
-import Header from './constant/Header'
-import Footer from './constant/Footer';
-import Home from './home/index';
-import { BrowserRouter as Router,Routes ,Route, useLocation} from 'react-router-dom'
+import "./index.css";
+import Header from "./constant/Header";
+import Footer from "./constant/Footer";
+import Home from "./home/index";
+import WhoWeAre from "./who we are";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <Router>
-      <Layout />
-      
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<WhoWeAre />} />
+        {/* Add other routes */}
+      </Routes>
+      <Footer />
     </Router>
   );
 }
 
-function Layout() {
-  const location = useLocation();
-
-  // Check if the current page is "FirstPage"
-  const isFirstPage = location.pathname === "/";
-
-  return (
-    <div>
-      
-      
-      <Routes>
-        <Route path="/" element={<Home/>} />
-        
-        {/* Add other routes */}
-      </Routes>
-      <Footer/>
-    </div>
-  );
-}
-
-export default App
+export default App;
