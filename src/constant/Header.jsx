@@ -4,14 +4,10 @@ import { useState, useEffect } from "react";
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isHomePage, setIsHomePage] = useState(false);  // Track if on the home page
+  const [isHomePage, setIsHomePage] = useState(false);
 
   const handleScroll = () => {
-    if (window.scrollY > window.innerHeight * 0.4) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
+    setIsScrolled(window.scrollY > window.innerHeight * 0.4);
   };
 
   const handleResize = () => {
@@ -23,7 +19,7 @@ function Header() {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
-    setIsHomePage(window.location.pathname === '/'); // Check if on the homepage
+    setIsHomePage(window.location.pathname === "/"); // Check if on the homepage
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
@@ -35,12 +31,20 @@ function Header() {
   };
 
   return (
-    <header className={`py-4 px-6 fixed w-full transition-all z-20 duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
+    <header
+      className={`py-4 px-6 fixed w-full transition-all z-20 duration-300 ${
+        isScrolled ? "bg-white shadow-md" : "bg-transparent"
+      }`}
+    >
       <nav className="flex justify-between items-center">
         {/* Logo */}
         <a
           href="/"
-          className={`font-clash text-[45px] font-bold ${isScrolled ? 'text-black' : 'bg-gradient-to-r from-[#E0EAFE] via-[#96B8FC] to-[#96B8FC] bg-clip-text text-transparent'}`}
+          className={`font-clash text-[45px] font-bold ${
+            isScrolled
+              ? "text-black"
+              : "bg-gradient-to-r from-[#E0EAFE] via-[#96B8FC] to-[#96B8FC] bg-clip-text text-transparent"
+          }`}
         >
           HavenHome
         </a>
@@ -52,7 +56,9 @@ function Header() {
           aria-label="Toggle menu"
         >
           <svg
-            className={`w-6 h-6 transition-transform duration-300 ${isMenuOpen ? 'rotate-45 scale-125' : ''}`}
+            className={`w-6 h-6 transition-transform duration-300 ${
+              isMenuOpen ? "rotate-45 scale-125" : ""
+            }`}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="none"
@@ -62,13 +68,11 @@ function Header() {
             strokeLinejoin="round"
           >
             {isMenuOpen ? (
-              // X Symbol
               <>
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
               </>
             ) : (
-              // Hamburger Icon
               <>
                 <line x1="4" y1="6" x2="20" y2="6" />
                 <line x1="4" y1="12" x2="20" y2="12" />
@@ -79,49 +83,82 @@ function Header() {
         </button>
 
         {/* Navbar Links for Desktop */}
-        <div className={`hidden md:flex md:flex-row md:w-[50%] justify-between items-center`}>
+        <div className="hidden md:flex md:flex-row md:w-[50%] justify-between items-center">
+          {/* Home Link */}
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `font-sans text-[25px] font-medium ${isHomePage && isActive ? 'border-b-2 border-white rounded-[25px]' : ''} ${isActive ? 'border-b-2 border-[#E0EAFE] rounded-[25px]' : ''} py-2 px-4 ${isScrolled || !isHomePage ? 'text-black' : 'text-white'}`
+              `font-sans text-[25px] font-medium rounded-[25px] border border-dotted py-2 px-4 ${
+                isScrolled
+                  ? "text-black border-transparent"
+                  : isHomePage
+                  ? isActive
+                    ? "text-white border-white"
+                    : "text-white border-transparent"
+                  : isActive
+                  ? "text-black border-black"
+                  : "text-black border-transparent"
+              }`
             }
-            aria-label="Go to the homepage"
           >
             Home
           </NavLink>
+
+          {/* Who We Are Link */}
           <NavLink
             to="/about"
             className={({ isActive }) =>
-              `font-sans text-[25px] font-medium ${isActive ? 'border-b-2 border-[#E0EAFE] rounded-[25px]' : ''} py-2 px-4 ${isScrolled ? 'text-black' : 'text-white'}`
+              `font-sans text-[25px] font-medium rounded-[25px] py-2 px-4 ${
+                isScrolled
+                  ? "text-black"
+                  : isHomePage
+                  ? "text-white"
+                  : isActive
+                  ? "text-black border-black border border-dotted"
+                  : "text-black"
+              }`
             }
-            aria-label="Learn more about who we are"
           >
             Who we are
           </NavLink>
+
+          {/* Product Category Link */}
           <NavLink
             to="/products"
             className={({ isActive }) =>
-              `font-sans text-[25px] font-medium ${isActive ? 'border-b-2 border-[#E0EAFE] rounded-[25px]' : ''} py-2 px-4 ${isScrolled ? 'text-black' : 'text-white'}`
+              `font-sans text-[25px] font-medium rounded-[25px] py-2 px-4 ${
+                isScrolled
+                  ? "text-black"
+                  : isHomePage
+                  ? "text-white"
+                  : isActive
+                  ? "text-black border-black border border-dotted"
+                  : "text-black"
+              }`
             }
-            aria-label="Browse our product categories"
           >
             Product Category
           </NavLink>
+
+          {/* Shop Link */}
           <NavLink
             to="/shop"
-            className={({ isActive }) =>
-              `font-sans text-[25px] font-medium ${isActive ? 'border-b-2 border-[#E0EAFE] rounded-[25px]' : ''} py-2 px-6 rounded-[25px] ${isHomePage ? 'bg-white text-black' : 'bg-[#96B8FC] text-white'}`
-            }
-            aria-label="Visit our shop"
+            className={`font-sans text-[25px] font-medium rounded-[25px] py-2 px-6 ${
+              isHomePage
+                ? "bg-white text-black"
+                : "bg-[#284070] text-white"
+            }`}
           >
             Shop
           </NavLink>
         </div>
       </nav>
 
-      {/* Slide-in Mobile Menu from Right */}
+      {/* Slide-in Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full bg-gradient-to-r w-full from-[#E0EAFE] via-[#96B8FC] to-[#96B8FC] z-40 transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`fixed top-0 right-0 h-[100vh] bg-gradient-to-r w-full from-[#E0EAFE] via-[#96B8FC] to-[#96B8FC] z-40 transition-transform duration-300 ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="flex flex-col items-start p-6">
           <NavLink
