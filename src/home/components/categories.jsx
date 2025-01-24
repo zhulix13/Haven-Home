@@ -6,10 +6,10 @@ function Categories() {
   return (
     <div className="my-[100px] flex flex-col gap-8">
       {/* Section Title */}
-      <h1 className="text-center font-clash font-bold text-[35px] md:text-[45px]">
+      <h1 className="text-center font-clash font-bold text-2xl md:text-[45px]">
         Product Categories
       </h1>
-      <p className="font-sans font-regular text-2xl md:text-2xl text-center px-4 leading-relaxed max-w-[750px] mx-auto">
+      <p className="font-sans font-regular text-xl md:text-2xl text-center px-4 leading-relaxed max-w-[750px] mx-auto">
         We have different types of furniture that will suit every angle of your home. 
         They are categorized as below.
       </p>
@@ -23,7 +23,7 @@ function Categories() {
             alt="living-room"
             className="w-full max-w-[300px] h-auto rounded-lg shadow-lg"
           />
-          <h1 className="mt-5 text-center font-clash font-semibold text-2xl md:text-2xl">
+          <h1 className="mt-5 text-center font-clash font-semibold text-base md:text-2xl">
             Living Room
           </h1>
         </div>
@@ -54,7 +54,7 @@ function Categories() {
             alt="bed-room"
             className="w-full max-w-[300px] h-auto rounded-lg shadow-lg"
           />
-          <h1 className="mt-5 text-center font-clash font-semibold text-2xl md:text-2xl">
+          <h1 className="mt-5 text-center font-clash font-semibold text-base md:text-2xl">
             Bed Room
           </h1>
         </div>
@@ -85,7 +85,7 @@ function Categories() {
             alt="dining-room"
             className="w-full max-w-[300px] h-auto rounded-lg shadow-lg"
           />
-          <h1 className="mt-5 text-center font-clash font-semibold text-2xl md:text-2xl">
+          <h1 className="mt-5 text-center font-clash font-semibold text-base md:text-2xl">
             Dining Room
           </h1>
         </div>

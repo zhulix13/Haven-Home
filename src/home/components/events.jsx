@@ -6,10 +6,10 @@ function Events() {
   return (
     <section className="py-6 md:py-10">
       {/* Section Title */}
-      <h1 className="text-center font-clash font-bold text-[35px] md:text-[45px]">
+      <h1 className="text-center font-clash font-bold text-2xl md:text-[45px]">
         Events
       </h1>
-      <p className="font-sans font-normal mt-4 md:mt-6 text-[20px] md:text-2xl text-center max-w-[750px] mx-auto">
+      <p className="font-sans font-normal mt-4 md:mt-6 text-xl md:text-2xl text-center max-w-[750px] mx-auto">
         We have attended thousands of events across Nigeria and these are some of them.
       </p>
 
@@ -22,10 +22,10 @@ function Events() {
             alt="Grand Opening"
             className="w-full max-w-[400px] h-auto rounded-lg shadow-lg"
           />
-          <h1 className="font-clash font-semibold text-2xl md:text-2xl text-center">
+          <h1 className="font-clash font-semibold text-xl md:text-2xl text-center">
             Grand Opening
           </h1>
-          <p className="font-sans text-lg md:text-lg text-center font-regular max-w-[300px]">
+          <p className="font-sans text-base md:text-lg text-center font-regular max-w-[300px]">
             We were present at the grand opening of Albergo Hotels to appreciate their immense
             patronage.
           </p>
@@ -38,10 +38,10 @@ function Events() {
             alt="Site Inspection"
             className="w-full max-w-[400px] h-auto rounded-lg shadow-lg"
           />
-          <h1 className="font-clash font-semibold text-2xl md:text-2xl text-center">
+          <h1 className="font-clash font-semibold text-xl md:text-2xl text-center">
             Site Inspection
           </h1>
-          <p className="font-sans text-lg md:text-lg text-center font-regular max-w-[300px]">
+          <p className="font-sans text-base md:text-lg text-center font-regular max-w-[300px]">
             Site seeing of our furniture production room to make sure things are going well
             appropriately.
           </p>
@@ -54,10 +54,10 @@ function Events() {
             alt="Installation"
             className="w-full max-w-[400px] h-auto rounded-lg shadow-lg"
           />
-          <h1 className="font-clash font-semibold text-2xl md:text-2xl text-center">
+          <h1 className="font-clash font-semibold text-xl md:text-2xl text-center">
             Installation
           </h1>
-          <p className="font-sans text-lg md:text-lg text-center font-regular max-w-[300px]">
+          <p className="font-sans text-base md:text-lg text-center font-regular max-w-[300px]">
             Dining set installation for a client who purchased online and got it delivered and
             installed neatly.
           </p>

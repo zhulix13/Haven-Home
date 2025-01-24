@@ -40,7 +40,7 @@ function Header() {
         {/* Logo */}
         <a
           href="/"
-          className={`font-clash text-[45px] font-bold ${
+          className={`font-clash text-2xl md:text-[45px] font-bold ${
             isScrolled
               ? "text-black"
               : "bg-gradient-to-r from-[#E0EAFE] via-[#96B8FC] to-[#96B8FC] bg-clip-text text-transparent"

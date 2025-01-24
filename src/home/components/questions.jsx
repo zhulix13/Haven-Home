@@ -24,7 +24,7 @@ function Questions() {
 
   return (
     <section className="my-[50px] md:my-[100px] max-w-[1200px] mx-auto p-4">
-      <h1 className="font-clash font-bold text-4xl md:text-5xl text-center">
+      <h1 className="font-clash font-bold text-3xl md:text-5xl text-center">
         You Must Have Questions Right?
       </h1>
       <p className="font-sans font-regular text-base md:text-2xl mt-6 md:mt-9 text-wrap text-center max-w-[850px] mx-auto">
