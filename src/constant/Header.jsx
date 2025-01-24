@@ -7,7 +7,7 @@ function Header() {
   const [isHomePage, setIsHomePage] = useState(false);
 
   const handleScroll = () => {
-    setIsScrolled(window.scrollY > window.innerHeight * 0.4);
+    setIsScrolled(window.scrollY > window.innerHeight * 0.05);
   };
 
   const handleResize = () => {
