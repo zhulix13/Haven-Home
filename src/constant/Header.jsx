@@ -56,30 +56,33 @@ function Header() {
           aria-label="Toggle menu"
         >
           <svg
-            className={`w-6 h-6 transition-transform duration-300 ${
-              isMenuOpen ? "rotate-45 scale-125" : ""
-            }`}
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            {isMenuOpen ? (
-              <>
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </>
-            ) : (
-              <>
-                <line x1="4" y1="6" x2="20" y2="6" />
-                <line x1="4" y1="12" x2="20" y2="12" />
-                <line x1="4" y1="18" x2="20" y2="18" />
-              </>
-            )}
+              className={`w-6 h-6 transition-transform duration-300 ${
+                isMenuOpen ? "rotate-90" : ""
+              }`}
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              {isMenuOpen ? (
+                <>
+                  {/* X symbol */}
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                  <line x1="6" y1="18" x2="18" y2="6" />
+                </>
+              ) : (
+                <>
+                  {/* Hamburger menu */}
+                  <line x1="4" y1="6" x2="20" y2="6" />
+                  <line x1="4" y1="12" x2="20" y2="12" />
+                  <line x1="4" y1="18" x2="20" y2="18" />
+                </>
+              )}
           </svg>
+
         </button>
 
         {/* Navbar Links for Desktop */}
@@ -90,7 +93,9 @@ function Header() {
             className={({ isActive }) =>
               `font-sans text-[25px] font-medium rounded-[25px] border border-dotted py-2 px-4 ${
                 isScrolled
-                  ? "text-black border-transparent"
+                  ? isActive
+                    ? "text-black border-black"
+                    : "text-black border-transparent"
                   : isHomePage
                   ? isActive
                     ? "text-white border-white"
@@ -108,14 +113,16 @@ function Header() {
           <NavLink
             to="/about"
             className={({ isActive }) =>
-              `font-sans text-[25px] font-medium rounded-[25px] py-2 px-4 ${
+              `font-sans text-[25px] font-medium rounded-[25px] border border-dotted py-2 px-4 ${
                 isScrolled
-                  ? "text-black"
+                  ? isActive
+                    ? "text-black border-black"
+                    : "text-black border-transparent"
                   : isHomePage
-                  ? "text-white"
+                  ? "text-white border-transparent"
                   : isActive
-                  ? "text-black border-black border border-dotted"
-                  : "text-black"
+                  ? "text-black border-black"
+                  : "text-black border-transparent"
               }`
             }
           >
@@ -126,14 +133,16 @@ function Header() {
           <NavLink
             to="/products"
             className={({ isActive }) =>
-              `font-sans text-[25px] font-medium rounded-[25px] py-2 px-4 ${
+              `font-sans text-[25px] font-medium rounded-[25px] border border-dotted py-2 px-4 ${
                 isScrolled
-                  ? "text-black"
+                  ? isActive
+                    ? "text-black border-black"
+                    : "text-black border-transparent"
                   : isHomePage
-                  ? "text-white"
+                  ? "text-white border-transparent"
                   : isActive
-                  ? "text-black border-black border border-dotted"
-                  : "text-black"
+                  ? "text-black border-black"
+                  : "text-black border-transparent"
               }`
             }
           >
