@@ -5,10 +5,12 @@ import Home from "./home/index";
 import WhoWeAre from "./who we are";
 import ProductCategory from "./product category";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<WhoWeAre />} />

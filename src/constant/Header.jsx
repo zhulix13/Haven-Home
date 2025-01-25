@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHomePage, setIsHomePage] = useState(false);
+ 
 
   const handleScroll = () => {
     setIsScrolled(window.scrollY > window.innerHeight * 0.05);
@@ -16,6 +17,7 @@ function Header() {
     }
   };
 
+ 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
@@ -32,6 +34,7 @@ function Header() {
 
   return (
     <header
+      
       className={`py-4 px-6 fixed w-full transition-all z-20 duration-300 ${
         isScrolled ? "bg-white shadow-md" : "bg-transparent"
       }`}
