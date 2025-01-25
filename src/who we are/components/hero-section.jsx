@@ -19,6 +19,7 @@ function Hero() {
          <div className="">
             <button className="font-sans font-regular text-white py-2 px-5 cursor-pointer bg-black rounded-3xl text-2xl">Explore</button>
          </div>
+         <div></div>
          </div>
       </div>
     </main>
