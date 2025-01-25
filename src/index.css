@@ -24,3 +24,9 @@
    background-repeat: no-repeat;
  }
  
+ .bg-shop{
+   background: url('./assets/shop/frame.png');
+   background-size: cover; /* Ensures the entire image fits within the div */
+   background-position: center;
+   background-repeat: no-repeat;
+ }
