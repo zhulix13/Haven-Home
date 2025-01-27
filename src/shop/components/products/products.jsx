@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import vector from "../../../assets/shop/Vector.png";
 import { FaWhatsapp, FaShoppingCart, FaArrowRight } from "react-icons/fa"; // For WhatsApp, shopping cart, and arrow icons
-import products from "./products.js";
+import products from "./productslist.js";
 import { Link, NavLink } from "react-router-dom";
 
 function Products({ cart, setCart }) {
