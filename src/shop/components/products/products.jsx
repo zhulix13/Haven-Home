@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import vector from "../../../assets/shop/Vector.png";
-import { FaWhatsapp } from "react-icons/fa"; // For WhatsApp icon
-import { FaShoppingCart, FaArrowRight } from "react-icons/fa"; // For shopping cart and arrow icons
+import { FaWhatsapp, FaShoppingCart, FaArrowRight } from "react-icons/fa"; // For WhatsApp, shopping cart, and arrow icons
 import products from "./products.js";
 
 function Products() {
@@ -13,9 +12,14 @@ function Products() {
     const productToAdd = products.find((product) => product.id === id);
     if (productToAdd && !cart.some((item) => item.id === id)) {
       setCart((prevCart) => [...prevCart, productToAdd]);
-      setNotification(`${productToAdd.name} has been added to the cart!`);
-      setTimeout(() => setNotification(""), 3000); // Clear notification after 3 seconds
+      showNotification(`${productToAdd.name} added to cart!`);
     }
+  }
+
+  // Function to show a notification
+  function showNotification(message) {
+    setNotification(message);
+    setTimeout(() => setNotification(""), 3000); // Hide notification after 3 seconds
   }
 
   // Function to generate WhatsApp message from cart
@@ -34,35 +38,39 @@ function Products() {
 
   // Redirect to WhatsApp with the cart details
   function sendToWhatsApp() {
-   const message = generateWhatsAppMessage();
-   const encodedMessage = encodeURIComponent(message);
-   const whatsappUrl = `https://wa.me/2348140412354?text=${encodedMessage}`;
-   
-   // Open WhatsApp link
-   const newWindow = window.open(whatsappUrl, "_blank");
- 
-   // Check if the WhatsApp window was successfully opened
-   if (newWindow) {
-     setCart([]); // Clear cart if the window opened
-   } else {
-     alert("Failed to open WhatsApp. Please check your pop-up settings.");
-   }
- }
- 
+    const message = generateWhatsAppMessage();
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/2348140412354?text=${encodedMessage}`;
+    const newWindow = window.open(whatsappUrl, "_blank");
+
+    if (newWindow) {
+      setCart([]); // Clear cart only if the WhatsApp window opens
+    } else {
+      alert("Failed to open WhatsApp. Please check your pop-up settings.");
+    }
+  }
 
   return (
-    <section className="mt-8 flex flex-col items-center">
-      {/* Notification */}
-      {notification && (
-        <div className="fixed z-[150] top-[100px] right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg">
-          {notification}
-        </div>
-      )}
-
+    <section className="mt-8 relative flex flex-col items-center">
       {/* Filter Section */}
       <div className="flex items-center gap-2">
         <img src={vector} alt="filter" className="h-5 w-5" />
         <p className="font-sans text-base md:text-xl">Filter</p>
+      </div>
+
+      {/* Notification Section */}
+      {notification && (
+        <div className="fixed z-[150] top-7 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-md transition-opacity duration-300">
+          {notification}
+        </div>
+      )}
+
+      {/* Cart Indicator */}
+      <div className=" fixed right-3 md:right-6 z-[150] top-20 md:top-30  flex items-center gap-2">
+        <FaShoppingCart className="text-4xl text-gray-700" />
+        <div className="bg-red-500 text-white text-base font-semibold rounded-full w-6 h-6 md:w-8 md:h-8 flex items-center justify-center">
+          {cart.length}
+        </div>
       </div>
 
       {/* Product List */}
@@ -75,12 +83,12 @@ function Products() {
             <div className="font-sans text-base px-1 md:text-2xl font-medium">
               {product.name}
             </div>
-            <div className="flex items-center w-full md:max-w-[80%] justify-between">
+            <div className="flex items-center w-full md:max-w-[70%] justify-between">
               <p className="font-sans flex-shrink text-base md:text-2xl font-medium">{`₦ ${product.price}`}</p>
               <div className="flex items-center flex-shrink bg-gray-200 px-4 py-2 rounded-lg">
                 {/* WhatsApp Icon */}
                 <button
-                  onClick={sendToWhatsApp}
+                  onClick={() => sendToWhatsApp()}
                   className="flex items-center justify-center text-green-500 text-base md:text-xl"
                 >
                   <FaWhatsapp />
