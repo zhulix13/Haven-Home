@@ -1,11 +1,11 @@
 import Header from "../../constant/Header";
 
-function HeroSection(){
+function HeroSection({cartLength}){
    const Sets = ['DINING ROOM SETS', 'SOFA SETS', 'BEDROOM SETS', 'LUXURY ', 'CUSTOMIZED SETS', 'PROMO']
 
    return(
       <section className="bg-shop">
-         <Header/>
+         <Header cartLength = {cartLength}/>
 
          <div className="h-[80vh] flex flex-col justify-end ">
             <div className="w-[95%] md:w-[85%] my-auto space-y-6 mx-auto ">

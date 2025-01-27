@@ -1,10 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { useState, useEffect} from "react";
+import { FaShoppingCart } from "react-icons/fa";
 
-function Header() {
+function Header({cartLength}) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHomePage, setIsHomePage] = useState(false);
+  const [isShopSection, setIsShopSection] = useState(false)
  
 
   const handleScroll = () => {
@@ -22,6 +24,7 @@ function Header() {
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
     setIsHomePage(window.location.pathname === "/"); // Check if on the homepage
+    setIsShopSection(window.location.pathname === "/shop")
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
@@ -51,6 +54,19 @@ function Header() {
         >
           HavenHome
         </a>
+
+           {/* Cart Indicator */}
+                {isShopSection && <div className="  md:hidden right-1  flex items-center gap-2">
+                  <NavLink
+                      to='/cart'
+                    >
+                    <FaShoppingCart className="text-[33px] text-gray-700" />
+                    <div className="bg-red-500 text-white text-base font-semibold rounded-full w-6 h-6 md:w-8 md:h-8 flex items-center justify-center">
+                      {cartLength}
+                    </div>
+                  </NavLink>
+                
+                </div>}
 
         {/* Hamburger Button */}
         <button

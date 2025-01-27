@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import vector from "../../../assets/shop/Vector.png";
 import { FaWhatsapp, FaShoppingCart, FaArrowRight } from "react-icons/fa"; // For WhatsApp, shopping cart, and arrow icons
 import products from "./products.js";
+import { Link, NavLink } from "react-router-dom";
 
-function Products() {
-  const [cart, setCart] = useState([]);
+function Products({ cart, setCart }) {
   const [notification, setNotification] = useState(""); // Notification state
 
   // Function to add a product to the cart
@@ -66,15 +66,19 @@ function Products() {
       )}
 
       {/* Cart Indicator */}
-      <div className=" fixed right-3 md:right-6 z-[150] top-20 md:top-30  flex items-center gap-2">
-        <FaShoppingCart className="text-4xl text-gray-700" />
-        <div className="bg-red-500 text-white text-base font-semibold rounded-full w-6 h-6 md:w-8 md:h-8 flex items-center justify-center">
-          {cart.length}
+      <NavLink
+         to="/cart"
+         >
+        <div className=" fixed right-3 md:right-6 z-[150] md:top-70 hidden md:flex items-center gap-2">
+          <FaShoppingCart className="text-4xl text-gray-700" />
+          <div className="bg-red-500 text-white text-base font-semibold rounded-full w-6 h-6 md:w-8 md:h-8 flex items-center justify-center">
+            {cart.length}
+          </div>
         </div>
-      </div>
+      </NavLink>
 
       {/* Product List */}
-      <div className="grid grid-cols-2 w-[90%] gap-y-8 gap-x-3 mx-auto mt-4 items-center md:grid-cols-3">
+      <div className="grid grid-cols-2  gap-y-8 w-full gap-x-3 max-w-[85%] mx-auto mt-4 items-center md:grid-cols-3">
         {products.map((product) => (
           <div className="flex flex-col space-y-1" key={product.id}>
             <div>
