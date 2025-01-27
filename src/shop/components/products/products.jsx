@@ -38,6 +38,7 @@ function Products() {
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/2348140412354?text=${encodedMessage}`;
     window.open(whatsappUrl, "_blank");
+    setCart([])
   }
 
   return (
