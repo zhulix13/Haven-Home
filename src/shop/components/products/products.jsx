@@ -1,36 +1,86 @@
+import React, { useState } from "react";
 import vector from "../../../assets/shop/Vector.png";
 import { FaWhatsapp } from "react-icons/fa"; // For WhatsApp icon
-import { FaShoppingCart } from "react-icons/fa"; // For shopping cart icon
-import { FaArrowRight } from "react-icons/fa"; // Import the arrow icon
+import { FaShoppingCart, FaArrowRight } from "react-icons/fa"; // For shopping cart and arrow icons
 import products from "./products.js";
 
 function Products() {
+  const [cart, setCart] = useState([]);
+  const [notification, setNotification] = useState(""); // Notification state
+
+  // Function to add a product to the cart
+  function addToCart(id) {
+    const productToAdd = products.find((product) => product.id === id);
+    if (productToAdd && !cart.some((item) => item.id === id)) {
+      setCart((prevCart) => [...prevCart, productToAdd]);
+      setNotification(`${productToAdd.name} has been added to the cart!`);
+      setTimeout(() => setNotification(""), 3000); // Clear notification after 3 seconds
+    }
+  }
+
+  // Function to generate WhatsApp message from cart
+  function generateWhatsAppMessage() {
+    if (cart.length === 0) {
+      return "Your cart is empty.";
+    }
+
+    let message = "Hi, I want to order the following items:\n\n";
+    cart.forEach((item, index) => {
+      message += `${index + 1}. ${item.name} - ₦${item.price}\n`;
+    });
+
+    return message;
+  }
+
+  // Redirect to WhatsApp with the cart details
+  function sendToWhatsApp() {
+    const message = generateWhatsAppMessage();
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/2348140412354?text=${encodedMessage}`;
+    window.open(whatsappUrl, "_blank");
+  }
+
   return (
     <section className="mt-8 flex flex-col items-center">
+      {/* Notification */}
+      {notification && (
+        <div className="fixed z-[150] top-[100px] right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg">
+          {notification}
+        </div>
+      )}
+
+      {/* Filter Section */}
       <div className="flex items-center gap-2">
         <img src={vector} alt="filter" className="h-5 w-5" />
         <p className="font-sans text-base md:text-xl">Filter</p>
       </div>
 
-      <div className="grid grid-cols-2 w-[90%] gap-y-8 gap-x-3  mx-auto mt-4 items-center md:grid-cols-3  ">
+      {/* Product List */}
+      <div className="grid grid-cols-2 w-[90%] gap-y-8 gap-x-3 mx-auto mt-4 items-center md:grid-cols-3">
         {products.map((product) => (
-          <div className="flex flex-col  space-y-1" key={product.id}>
+          <div className="flex flex-col space-y-1" key={product.id}>
             <div>
-              <img src={product.image} alt="furniture" />
+              <img src={product.image} alt={product.name} />
             </div>
             <div className="font-sans text-base px-1 md:text-2xl font-medium">
               {product.name}
             </div>
-            <div className="flex items-center w-full md:max-w-[80%] justify-between ">
+            <div className="flex items-center w-full md:max-w-[80%] justify-between">
               <p className="font-sans flex-shrink text-base md:text-2xl font-medium">{`₦ ${product.price}`}</p>
               <div className="flex items-center flex-shrink bg-gray-200 px-4 py-2 rounded-lg">
                 {/* WhatsApp Icon */}
-                <button className="flex items-center justify-center text-green-500 text-base md:text-xl">
+                <button
+                  onClick={sendToWhatsApp}
+                  className="flex items-center justify-center text-green-500 text-base md:text-xl"
+                >
                   <FaWhatsapp />
                 </button>
                 <div className="mx-2 h-6 border-r border-gray-400"></div>
-                {/* Shopping Cart Icon */}
-                <button className="flex items-center justify-center text-gray-700 text-base md:text-xl">
+                {/* Add to Cart */}
+                <button
+                  onClick={() => addToCart(product.id)}
+                  className="flex items-center justify-center text-gray-700 text-base md:text-xl"
+                >
                   <FaShoppingCart />
                 </button>
               </div>
@@ -39,6 +89,7 @@ function Products() {
         ))}
       </div>
 
+      {/* See All Button */}
       <div className="mt-10">
         <button className="flex items-center font-clash justify-center bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700">
           <span className="mr-2">See All</span>
@@ -46,6 +97,7 @@ function Products() {
         </button>
       </div>
 
+      {/* Newsletter Section */}
       <div className="flex flex-col mt-[70px] items-center justify-center space-y-6">
         <h1 className="text-center font-sans text-2xl md:text-3xl font-bold">
           Subscribe to our newsletter
