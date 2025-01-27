@@ -1,5 +1,5 @@
 import HeroSection from "./components/hero-section";
-import Products from "./components/products/products.jsx";
+import Products from "./components/products/products";
 import { useState } from "react";
 
 function Shop(){

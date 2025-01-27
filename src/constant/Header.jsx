@@ -56,17 +56,21 @@ function Header({cartLength}) {
         </a>
 
            {/* Cart Indicator */}
-                {isShopSection && <div className="  md:hidden right-1  flex items-center gap-2">
-                  <NavLink
-                      to='/cart'
-                    >
+                {isShopSection && 
+                <NavLink
+                to='/cart'
+              >
+                <div className="  md:hidden right-1  flex items-center gap-2">
+                  
                     <FaShoppingCart className="text-[33px] text-gray-700" />
                     <div className="bg-red-500 text-white text-base font-semibold rounded-full w-6 h-6 md:w-8 md:h-8 flex items-center justify-center">
                       {cartLength}
                     </div>
-                  </NavLink>
+                  
                 
-                </div>}
+                </div>
+                </NavLink>
+                }
 
         {/* Hamburger Button */}
         <button
