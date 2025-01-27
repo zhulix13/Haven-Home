@@ -34,12 +34,21 @@ function Products() {
 
   // Redirect to WhatsApp with the cart details
   function sendToWhatsApp() {
-    const message = generateWhatsAppMessage();
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/2348140412354?text=${encodedMessage}`;
-    window.open(whatsappUrl, "_blank");
-    setCart([])
-  }
+   const message = generateWhatsAppMessage();
+   const encodedMessage = encodeURIComponent(message);
+   const whatsappUrl = `https://wa.me/2348140412354?text=${encodedMessage}`;
+   
+   // Open WhatsApp link
+   const newWindow = window.open(whatsappUrl, "_blank");
+ 
+   // Check if the WhatsApp window was successfully opened
+   if (newWindow) {
+     setCart([]); // Clear cart if the window opened
+   } else {
+     alert("Failed to open WhatsApp. Please check your pop-up settings.");
+   }
+ }
+ 
 
   return (
     <section className="mt-8 flex flex-col items-center">
