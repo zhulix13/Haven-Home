@@ -4,6 +4,7 @@ import { FaWhatsapp, FaShoppingCart, FaArrowRight } from "react-icons/fa"; // Fo
 import products from "./productslist.js";
 import { Link, NavLink } from "react-router-dom";
 
+
 function Products({ cart, setCart }) {
   const [notification, setNotification] = useState(""); // Notification state
 
@@ -87,21 +88,21 @@ function Products({ cart, setCart }) {
             <div className="font-sans text-base px-1 md:text-2xl font-medium">
               {product.name}
             </div>
-            <div className="flex items-center w-full md:max-w-[70%] justify-between">
+            <div className="flex items-center w-full md:max-w-[85%] justify-between">
               <p className="font-sans flex-shrink text-base md:text-2xl font-medium">{`₦ ${product.price}`}</p>
-              <div className="flex items-center flex-shrink bg-gray-200 px-4 py-2 rounded-lg">
+              <div className="flex items-center flex-shrink bg-gray-200 px-3 py-1 md:px-4 md:py-2 rounded-lg">
                 {/* WhatsApp Icon */}
                 <button
                   onClick={() => sendToWhatsApp()}
-                  className="flex items-center justify-center text-green-500 text-base md:text-xl"
+                  className="flex items-center justify-center text-green-500 text-sm md:text-xl"
                 >
                   <FaWhatsapp />
                 </button>
-                <div className="mx-2 h-6 border-r border-gray-400"></div>
+                <div className="mx-2 h-5 md:h-6 border-r border-gray-400"></div>
                 {/* Add to Cart */}
                 <button
                   onClick={() => addToCart(product.id)}
-                  className="flex items-center justify-center text-gray-700 text-base md:text-xl"
+                  className="flex items-center justify-center text-gray-700 text-sm md:text-xl"
                 >
                   <FaShoppingCart />
                 </button>
