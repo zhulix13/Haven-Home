@@ -1,9 +1,10 @@
-import Header from "../constant/Header"
+
+import CartItem from "./components/cart"
 
 function Cart(){
    return(
       <>
-         <Header />
+        <CartItem /> 
       </>
    )
 }

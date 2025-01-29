@@ -58,7 +58,7 @@ function Header({cartLength}) {
         </a>
 
            {/* Cart Indicator */}
-                {isShopSection || isCartSection  && 
+                {isShopSection || isCartSection  ? (
                 <NavLink
                 to='/cart'
               >
@@ -71,7 +71,7 @@ function Header({cartLength}) {
                   
                 
                 </div>
-                </NavLink>
+                </NavLink>) : null
                 }
 
         {/* Hamburger Button */}
