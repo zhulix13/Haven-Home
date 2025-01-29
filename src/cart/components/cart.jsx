@@ -80,7 +80,7 @@ function CartItem() {
                         <FaTrash />
                       </button>
                     </div>
-                    <div className="flex items-center justify-between mt-4">
+                    <div className="flex-col space-y-4 md:flex items-center justify-between mt-4">
                       <div className="flex items-center border border-gray-200 rounded-lg">
                         <button
                           onClick={() => decreaseQuantity(item.id)}
