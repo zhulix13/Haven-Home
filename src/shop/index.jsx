@@ -10,7 +10,7 @@ function Shop(){
    return(
 
       <>
-         <HeroSection cartLength = {cart.length}/>
+         <HeroSection cart = {cart}/>
          <Products
           cart={cart}
           setCart={setCart}

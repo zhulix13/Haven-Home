@@ -1,14 +1,19 @@
 import { NavLink } from "react-router-dom";
-import { useState, useEffect} from "react";
+import { useState, useEffect, useMemo, useContext} from "react";
 import { FaShoppingCart } from "react-icons/fa";
+import { CartContext } from "../CartContext";
 
-function Header({cartLength}) {
+
+function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHomePage, setIsHomePage] = useState(false);
   const [isShopSection, setIsShopSection] = useState(false)
   const [isCartSection, setIsCartSection] = useState(false)
  
+  const {cart, setCart} = useContext(CartContext)
+
+  console.log(cart)
 
   const handleScroll = () => {
     setIsScrolled(window.scrollY > window.innerHeight * 0.05);
@@ -37,6 +42,12 @@ function Header({cartLength}) {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const cartQuantity = useMemo(() => {
+    if (!Array.isArray(cart)) return 0; // Ensure `cart` is an array
+    return cart.reduce((total, item) => total + (item.quantity || 0), 0); // Fallback to 0 if `item.quantity` is undefined
+  }, [cart]);
+  
+  
   return (
     <header
       
@@ -58,7 +69,7 @@ function Header({cartLength}) {
         </a>
 
            {/* Cart Indicator */}
-                {isShopSection || isCartSection  ? (
+                {isCartSection  ? (
                 <NavLink
                 to='/cart'
               >
@@ -66,7 +77,7 @@ function Header({cartLength}) {
                   
                     <FaShoppingCart className="text-[25px] text-gray-700" />
                     <div className="bg-red-500 text-white text-base font-semibold rounded-full w-5 h-5 -ml-1  flex items-center justify-center">
-                      {cartLength}
+                      {cartQuantity}
                     </div>
                   
                 
